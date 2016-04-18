@@ -7,7 +7,7 @@ This set of Matlab codes reproduce the figures and experimental results publishe
 + Folder **landscape**: to reproduce Figure 2 and Figure 5. 
 + Folder **simulation**: to reproduce the plot in Figure 4, as well as the comparison of TRM with gradient descent on an Columbia campus image (columbiacampus.jpg). 
 	- Run *test_real.m* to start the real image experiments; try to tune the TRM parameters by setting the options before calling the TRM (the gradient descent algorithm converges very slowly -- we set a high error tolerance to allow early stopping; the reference parameter setting for TRM is very conservative)
-	- Run *test_fix_ins_ratio.m* to start to geometry test as described in Fig. 4. 
+	- Run *test_geometry.m* to start the geometry test as described in Fig. 4. 
 
 Note that the TRM implementation is based on the [Manopt package](http://www.manopt.org/), with changes to the conjugate gradient routine. The changes are contained in the file: 
 
