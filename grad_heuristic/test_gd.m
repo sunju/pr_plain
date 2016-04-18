@@ -19,14 +19,13 @@ A = 1/sqrt(2)*(randn(n,m)+1i*randn(n,m)); % sensing matrix
 x = zeros(n,1); x(1) = 1; %optimal solution (up to global phase difference)
 y_sq = abs(A'*x).^2; % generate the measurement
 tol = 1e-5; % stopping criteria for gradient-descent algorithm
-mu = 1* norm(x);  % nominal gradient size 
 eta = 0.8;     % line search parameter
 Err = zeros(times,1);
 F_Val = zeros(times,1);
 for t = 1:times
     fprintf('#simulation = %d\n',t);
     z_0 = randn(n,1) + 1i*randn(n,1);  % random initialization
-    [z,f_val,err] = grad_descent(y_sq,A,z_0,x,mu,eta, tol); % optimize the problem via wirtinger gradient descent
+    [z,f_val,err] = grad_descent(y_sq,A,z_0,x,eta,tol); % optimize the problem via wirtinger gradient descent
     Err(t) = err;
     F_Val(t) = f_val;
 end
